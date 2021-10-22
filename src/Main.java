@@ -72,6 +72,9 @@ public class  Main {
         me.setCar(fiat);
         System.out.println("Model samochodu który udało Ci się kupić to: " + me.getCar().manufacturer + " " + me.getCar().model);
 
+        System.out.println("");
+        System.out.println("Dokonuję zmiany aby przetestować GitCommit");
+
 
     }
 }
