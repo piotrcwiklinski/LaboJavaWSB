@@ -1,3 +1,5 @@
+import devices.Car;
+import devices.Phone;
 import java.util.Date;
 
 public class Human {
@@ -7,6 +9,7 @@ public class Human {
     Double salary;
     Animal pet;
     Car car;
+    Phone phone;
 
     Human(){
         this.salary = 1200.0;
@@ -45,6 +48,10 @@ public class Human {
 
     Car getCar() {
         return this.car;
+    }
+
+    public String toString(){
+        return firstName + " " + lastName + " a imie pupila to: " + pet.name + ". Telefon którego używam to: " + phone;
     }
 
 }

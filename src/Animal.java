@@ -64,6 +64,10 @@ public class Animal {
             System.out.println("To zwierzę jest martwe, już nigdy więcej nie zabierzesz go na spacer");
         }
     }
+
+    public String toString(){
+        return species + " " + name + " " + age;
+    }
 }
 //ctrl + alt + L - auto porządkowanie składni
 

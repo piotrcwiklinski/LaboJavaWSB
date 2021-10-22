@@ -1,3 +1,5 @@
+import devices.Car;
+import devices.Phone;
 
 public class  Main {
 
@@ -25,11 +27,14 @@ public class  Main {
         Integer humanAge = cat.getHumanAge();
         System.out.println("If I'll be human I'll be " + humanAge + " years old.");
 
+        Phone samsung = new Phone("Samsung", "Galaxy S21 5G");
+
         Human me = new Human();
 
         me.firstName = "Piotr";
         me.lastName = "Cwiklinski";
         me.pet = cat;
+        me.phone = samsung;
         System.out.println("I have a " + me.pet.species);
         System.out.println("I call it " + me.pet.name);
 
@@ -40,11 +45,13 @@ public class  Main {
         myCar.yearOfProd = 2021;
         myCar.color = "Silver";
         myCar.value = 120900.99;
-/*
+
+        System.out.println(" ");
         me.car = myCar;
         System.out.println("I drive a " + me.car.manufacturer + " " + me.car.model + ".");
         System.out.println("It's painted in " + me.car.color + ". It was produced in " + me.car.yearOfProd + ", and it's estimated value in PLN is around " + me.car.value);
-*/
+        System.out.println(" ");
+
         cat.feed();
         cat.feed();
         cat.takeForAWalk();
@@ -67,13 +74,41 @@ public class  Main {
         fiat.value = 12000.0;
         fiat.manufacturer = "fiat";
         fiat.model = "bravo";
+        fiat.carAdded();
 
         me.setSalary(20000.0);
         me.setCar(fiat);
         System.out.println("Model samochodu który udało Ci się kupić to: " + me.getCar().manufacturer + " " + me.getCar().model);
 
-        System.out.println("");
-        System.out.println("Dokonuję zmiany aby przetestować GitCommit");
+        Car opel = new Car();
+        opel.value = 12000.0;
+        opel.manufacturer = "fiat";
+        opel.model = "bravo";
+        opel.carAdded();
+
+        System.out.println(" ");
+        System.out.println("Porównanie dwóch samochodów o takich samych wartościach pól: " + fiat.equals(opel));
+        System.out.println(" ");
+        System.out.println("Wypisanie dwóch samochodów o takich samych wartościach pól (przy użyciu toString):");
+        System.out.println("1)Wypisanie obiektu o nazwie \"opel\": " + opel);
+        System.out.println("2)Wypisanie obiektu o nazwie \"fiat\": " + fiat);
+
+        System.out.println(" ");
+        System.out.println("Wypisanie dwóch zwierzaków o różnych wartościach pól (przy użyciu toString):");
+        System.out.println("1)Wypisanie obiektu o nazwie \"cat\": " + cat);
+        System.out.println("2)Wypisanie obiektu o nazwie \"dog\": " + dog);
+
+        System.out.println(" ");
+        System.out.println("Wypisanie dwóch osób o różnych wartościach pól (przy użyciu toString):");
+        System.out.println("1)Wypisanie obiektu o nazwie \"me\": " + me);
+
+        Human myWife = new Human();
+        myWife.firstName = "Malgorzata";
+        myWife.lastName = "Cwiklinska";
+        myWife.pet = dog;
+        myWife.phone = new Phone("Google", "Pixel 4a");
+
+        System.out.println("2)Wypisanie obiektu o nazwie \"myWife\": " + myWife);
 
 
     }
