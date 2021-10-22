@@ -40,11 +40,11 @@ public class  Main {
         myCar.yearOfProd = 2021;
         myCar.color = "Silver";
         myCar.value = 120900.99;
-
+/*
         me.car = myCar;
         System.out.println("I drive a " + me.car.manufacturer + " " + me.car.model + ".");
         System.out.println("It's painted in " + me.car.color + ". It was produced in " + me.car.yearOfProd + ", and it's estimated value in PLN is around " + me.car.value);
-
+*/
         cat.feed();
         cat.feed();
         cat.takeForAWalk();
