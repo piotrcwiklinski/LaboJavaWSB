@@ -1,5 +1,4 @@
-import devices.Car;
-import devices.Phone;
+import devices.*;
 
 public class  Main {
 
@@ -27,7 +26,7 @@ public class  Main {
         Integer humanAge = cat.getHumanAge();
         System.out.println("If I'll be human I'll be " + humanAge + " years old.");
 
-        Phone samsung = new Phone("Samsung", "Galaxy S21 5G");
+        Phone samsung = new Phone("Samsung", "Galaxy S21 5G", 2021);
 
         Human me = new Human();
 
@@ -39,10 +38,7 @@ public class  Main {
         System.out.println("I call it " + me.pet.name);
 
 
-        Car myCar = new Car();
-        myCar.manufacturer = "Volkswagen";
-        myCar.model = "Passat";
-        myCar.yearOfProd = 2021;
+        Car myCar = new Car("Volkswagen", "Passat", 2021);
         myCar.color = "Silver";
         myCar.value = 120900.99;
 
@@ -70,20 +66,16 @@ public class  Main {
         System.out.println();
         me.setSalary(12500.50);
 
-        Car fiat = new Car();
+        Car fiat = new Car("Fiat", "Bravo", 1998);
         fiat.value = 12000.0;
-        fiat.manufacturer = "fiat";
-        fiat.model = "bravo";
         fiat.carAdded();
 
         me.setSalary(20000.0);
         me.setCar(fiat);
         System.out.println("Model samochodu który udało Ci się kupić to: " + me.getCar().manufacturer + " " + me.getCar().model);
 
-        Car opel = new Car();
+        Car opel = new Car("Fiat", "Bravo", 1998);
         opel.value = 12000.0;
-        opel.manufacturer = "fiat";
-        opel.model = "bravo";
         opel.carAdded();
 
         System.out.println(" ");
@@ -106,9 +98,11 @@ public class  Main {
         myWife.firstName = "Malgorzata";
         myWife.lastName = "Cwiklinska";
         myWife.pet = dog;
-        myWife.phone = new Phone("Google", "Pixel 4a");
+        myWife.phone = new Phone("Google", "Pixel 4a", 2019);
 
         System.out.println("2)Wypisanie obiektu o nazwie \"myWife\": " + myWife);
+
+        Device washingMachine = new Device("Whirlpool", "EcoBubble", 2021);
 
 
     }

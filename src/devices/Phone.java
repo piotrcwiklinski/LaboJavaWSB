@@ -1,13 +1,12 @@
 package devices;
 
-public class Phone {
-    public String manufacturer;
-    public String model;
-    public String operatingSys;
+public class Phone extends Device {
 
-    public Phone(String manufacturer, String model){
-        this.manufacturer = manufacturer;
-        this.model = model;
+    public String operatingSys;
+    public Double screenSize;
+
+    public Phone(String manufacturer, String model, Integer yearOfProd){
+        super(manufacturer, model, yearOfProd);
         this.operatingSys = "Android";
     }
 

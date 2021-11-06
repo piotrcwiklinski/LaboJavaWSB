@@ -2,7 +2,7 @@ import devices.Car;
 import devices.Phone;
 import java.util.Date;
 
-public class Human {
+public class Human extends Animal {
     String firstName;
     String lastName;
     Integer age;
@@ -12,6 +12,7 @@ public class Human {
     Phone phone;
 
     Human(){
+        super("Homo Sapiens");
         this.salary = 1200.0;
     }
 

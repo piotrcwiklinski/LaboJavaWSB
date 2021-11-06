@@ -1,11 +1,11 @@
 public class Animal {
-    String species;
-    String name;
-    Double weight;
-    Integer age;
-    Boolean alive;
+    public String species;
+    public String name;
+    public Double weight;
+    public Integer age;
+    public Boolean alive;
 
-    Animal(String species) {
+    public Animal(String species) {
         this.species = species;
         this.alive = true;
         if (this.species == "Wilczur") {

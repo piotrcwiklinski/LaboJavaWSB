@@ -1,11 +1,12 @@
 package devices;
 
-public class Car {
-    public String manufacturer;
-    public String model;
-    public Integer yearOfProd;
-    public String color;
-    public Double value;
+public class Car extends Device {
+
+    public Integer milleage;
+
+    public Car(String manufacturer, String model, Integer yearOfProd) {
+        super(manufacturer, model, yearOfProd);
+    }
 
     public void carAdded() {
         System.out.println("Dodano samochód " + this.manufacturer + " " + this.model + " do bazy.");
