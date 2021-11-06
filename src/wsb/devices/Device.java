@@ -1,6 +1,6 @@
-package devices;
+package wsb.devices;
 
-public class Device {
+public abstract class Device {
     public String manufacturer;
     public String model;
     public Integer yearOfProd;
@@ -12,4 +12,6 @@ public class Device {
         this.model = model;
         this.yearOfProd = yearOfProd;
     }
+
+    abstract public void turnOn();
 }

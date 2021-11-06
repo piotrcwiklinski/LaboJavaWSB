@@ -1,15 +1,18 @@
-import devices.Car;
-import devices.Phone;
+package wsb;
+
+import wsb.devices.Car;
+import wsb.devices.Phone;
 import java.util.Date;
 
 public class Human extends Animal {
-    String firstName;
-    String lastName;
-    Integer age;
-    Double salary;
-    Animal pet;
-    Car car;
-    Phone phone;
+    public Double cash;
+    public String firstName;
+    public String lastName;
+    public Integer age;
+    public Double salary;
+    public Animal pet;
+    public Car car;
+    public Phone phone;
 
     Human(){
         super("Homo Sapiens");
@@ -47,8 +50,16 @@ public class Human extends Animal {
         }
     }
 
-    Car getCar() {
+    public Car getCar() {
         return this.car;
+    }
+
+    public Phone getPhone() {
+        return this.phone;
+    }
+
+    public Animal getPet() {
+        return this.pet;
     }
 
     public String toString(){

@@ -1,4 +1,6 @@
-import devices.*;
+package wsb;
+
+import wsb.devices.*;
 
 public class  Main {
 
@@ -102,7 +104,18 @@ public class  Main {
 
         System.out.println("2)Wypisanie obiektu o nazwie \"myWife\": " + myWife);
 
-        Device washingMachine = new Device("Whirlpool", "EcoBubble", 2021);
+        Human seller = new Human();
+        seller = myWife;
+        seller.cash = 0.0;
+
+        Human buyer = new Human();
+        buyer = me;
+        buyer.cash = 120000.0;
+
+        System.out.println("");
+        fiat.sale(me, myWife, fiat.value);
+
+
 
 
     }

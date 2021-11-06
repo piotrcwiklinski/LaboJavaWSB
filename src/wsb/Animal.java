@@ -1,3 +1,5 @@
+package wsb;
+
 public class Animal {
     public String species;
     public String name;
