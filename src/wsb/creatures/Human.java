@@ -1,5 +1,6 @@
-package wsb;
+package wsb.creatures;
 
+import wsb.Sellable;
 import wsb.devices.Car;
 import wsb.devices.Phone;
 import java.util.Date;
@@ -14,12 +15,12 @@ public class Human extends Animal implements Sellable {
     public Car car;
     public Phone phone;
 
-    Human(){
+    public Human(){
         super("Homo Sapiens");
         this.salary = 1200.0;
     }
 
-    void setSalary(Double salary){
+    public void setSalary(Double salary){
         if(salary > 0){
             System.out.println("Dane wysłane do systemu księgowego.");
             System.out.println("Odbierz aneks wynagrodzenia z księgowości.");
@@ -31,14 +32,19 @@ public class Human extends Animal implements Sellable {
     }
 
 
-    Double getSalary(){
+    public Double getSalary(){
         System.out.println("Data/Czas: " + new Date());
         System.out.println("Wynagrodzenie: " + this.salary);
 
         return this.salary;
     }
 
-    void setCar(Car newCar){
+    public void getFullName(){
+        this.name = this.firstName + " " + this.lastName;
+
+    }
+
+    public void setCar(Car newCar){
         if(this.salary > newCar.value){
             this.car = newCar;
             System.out.println("gratulacje, kupiłeś za gotówkę");

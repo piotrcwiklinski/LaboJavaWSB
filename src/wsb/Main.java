@@ -1,6 +1,9 @@
 package wsb;
 
+import wsb.creatures.*;
 import wsb.devices.*;
+
+//ctrl + alt + L - auto porządkowanie składni
 
 public class  Main {
 
@@ -34,6 +37,7 @@ public class  Main {
 
         me.firstName = "Piotr";
         me.lastName = "Cwiklinski";
+        me.getFullName();
         me.pet = cat;
         me.phone = samsung;
         System.out.println("I have a " + me.pet.species);
@@ -51,7 +55,7 @@ public class  Main {
         System.out.println(" ");
 
         cat.feed();
-        cat.feed();
+        cat.feed(0.5);
         cat.takeForAWalk();
         cat.takeForAWalk();
         cat.takeForAWalk();
@@ -114,35 +118,42 @@ public class  Main {
 
 
         System.out.println("");
-        System.out.println("Kasa kupującego przed sprzedażą auta: " + me.cash);
-        System.out.println("Kasa sprzedającego przed sprzedażą auta: " + myWife.cash);
+        System.out.println("Stan konta Piotra przed sprzedażą auta: " + me.cash);
+        System.out.println("Stan konta Małgosi przed sprzedażą auta: " + myWife.cash);
 
         System.out.println("");
         fiat.sale(myWife, me , fiat.value);
 
         System.out.println("");
-        System.out.println("Kasa kupującego po sprzedaży auta: " + me.cash);
-        System.out.println("Kasa sprzedającego po sprzedaży auta: " + myWife.cash);
+        System.out.println("Stan konta Piotra po sprzedaży auta: " + me.cash);
+        System.out.println("Stan konta Małgosi po sprzedaży auta: " + myWife.cash);
 
         System.out.println("");
-        dog.sale(myWife, me , dog.value);
+        cat.sale(me, myWife , cat.value);
 
         System.out.println("");
-        System.out.println("Kasa kupującego po sprzedaży zwierza: " + me.cash);
-        System.out.println("Kasa sprzedającego po sprzedaży zwierza: " + myWife.cash);
+        System.out.println("Stan konta Piotra po sprzedaży zwierza: " + me.cash);
+        System.out.println("Stan konta Małgosi po sprzedaży zwierza: " + myWife.cash);
 
         System.out.println("");
         myWife.phone.sale(myWife, me , myWife.phone.value);
 
         System.out.println("");
-        System.out.println("Kasa kupującego po sprzedaży telefonu: " + me.cash);
-        System.out.println("Kasa sprzedającego po sprzedaży telefonu: " + myWife.cash);
+        System.out.println("Stan konta Piotra po sprzedaży telefonu: " + me.cash);
+        System.out.println("Stan konta Małgosi po sprzedaży telefonu: " + myWife.cash);
 
         System.out.println("");
         System.out.println("Próba zakupu człowieka za pieniądze:");
         me.sale(me, myWife , 0.0);
 
+        System.out.println("");
+        FarmAnimal cow = new FarmAnimal("Krowa", 1200.0);
+        FarmAnimal chicken = new FarmAnimal("Kurczak", 5.00);
 
+        cow.beEaten(me);
+        chicken.beEaten(me);
+        chicken.beEaten(me);
+        dog.beEaten(me);
 
 
     }

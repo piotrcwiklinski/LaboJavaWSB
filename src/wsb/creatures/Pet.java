@@ -1,8 +1,8 @@
-package wsb;
+package wsb.creatures;
 
-public class Pet extends Animal implements Sellable{
+import wsb.Sellable;
 
-    public Double value;
+public class Pet extends Animal implements Sellable, Edible {
 
     public Pet(String species, Double value) {
         super(species);
@@ -24,5 +24,10 @@ public class Pet extends Animal implements Sellable{
             System.out.println("Transakcja się udała, kupiono " + this);
 
         }
+    }
+
+    public void beEaten(Human eater) {
+        System.out.println("Próbujesz zjeść zwierzę z gatunku " + this.species + ", o wadze: " + this.weight + " kg. Rezultat: ");
+        System.out.println("Spożywanie zwierząt domowych jest w tym kraju nielegalne, zgłaszam Cię do prokuratury " + eater.firstName + "!\n");
     }
 }

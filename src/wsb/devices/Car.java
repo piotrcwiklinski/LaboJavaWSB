@@ -1,6 +1,7 @@
 package wsb.devices;
 
 import wsb.*;
+import wsb.creatures.Human;
 
 public class Car extends Device implements Sellable {
 

@@ -1,11 +1,12 @@
-package wsb;
+package wsb.creatures;
 
-public class Animal {
+public abstract class Animal implements Feedable {
     public String species;
     public String name;
     public Double weight;
     public Integer age;
     public Boolean alive;
+    public Double value;
 
     public Animal(String species) {
         this.species = species;
@@ -14,16 +15,19 @@ public class Animal {
             this.weight = 12.0;
         } else if (this.species == "Devon Rex") {
             this.weight = 2.8;
-        } else {
+        } else if (this.species == "Homo Sapiens") {
+            this.weight = 80.0;
+        }
+        else {
             this.weight = 1.0;
         }
     }
 
-    void introduceYourself() {
+    public void introduceYourself() {
         System.out.println("I'm " + this.name);
     }
 
-    void doYouLike(String foodType) {
+    public void doYouLike(String foodType) {
         if (this.species == "Devon Rex" && foodType == "mouse") {
             System.out.println("yes, I like " + foodType);
         } else {
@@ -31,7 +35,7 @@ public class Animal {
         }
     }
 
-    Integer getHumanAge() {
+    public Integer getHumanAge() {
         if (this.species == "Wilczur") {
             return this.age * 7;
         } else if (this.species == "Devon Rex") {
@@ -41,16 +45,25 @@ public class Animal {
         }
     }
 
-    void feed() {
+    public void feed() {
         if (this.alive == true){
             this.weight += 1.0;
-            System.out.println("Waga tego zwierzęcia po karmieniu wynosi: " + this.weight);
+            System.out.println("Waga " + this.name + " po karmieniu wynosi: " + this.weight);
         } else {
             System.out.println("To zwierzę jest martwe, nie możesz go już nigdy więcej nakarmić.");
         }
     }
 
-    void takeForAWalk() {
+    public void feed(Double foodWeight) {
+        if (this.alive == true){
+            this.weight += foodWeight;
+            System.out.println("Waga " + this.name + " po karmieniu wynosi: " + this.weight);
+        } else {
+            System.out.println("To zwierzę jest martwe, nie możesz go już nigdy więcej nakarmić.");
+        }
+    }
+
+    public void takeForAWalk() {
         if (this.alive == true){
             this.weight -= 1.0;
             if (this.weight > 0.0) {
@@ -71,5 +84,4 @@ public class Animal {
         return species + " " + name;
     }
 }
-//ctrl + alt + L - auto porządkowanie składni
 
