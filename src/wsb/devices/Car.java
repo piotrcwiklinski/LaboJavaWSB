@@ -3,7 +3,7 @@ package wsb.devices;
 import wsb.*;
 import wsb.creatures.Human;
 
-public class Car extends Device implements Sellable {
+public abstract class Car extends Device implements Sellable {
 
     public Integer milleage;
 
@@ -38,5 +38,7 @@ public class Car extends Device implements Sellable {
             System.out.println("Transakcja się udała, kupiono " + this);
 
         }
-    };
+    }
+
+    public abstract void refuel(String fuelType);
 }

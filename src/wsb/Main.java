@@ -7,7 +7,7 @@ import wsb.devices.*;
 
 public class  Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         Pet dog = new Pet("Wilczur", 300.0);
         Pet cat = new Pet("Devon Rex", 500.0);
 
@@ -44,7 +44,7 @@ public class  Main {
         System.out.println("I call it " + me.pet.name);
 
 
-        Car myCar = new Car("Volkswagen", "Passat", 2021);
+        Electric myCar = new Electric("Volkswagen", "Passat", 2021);
         myCar.color = "Silver";
         myCar.value = 120900.99;
 
@@ -73,7 +73,7 @@ public class  Main {
         me.setSalary(12500.50);
         System.out.println();
 
-        Car fiat = new Car("Fiat", "Bravo", 1998);
+        Diesel fiat = new Diesel("Fiat", "Bravo", 1998);
         fiat.value = 12000.0;
         fiat.carAdded();
 /*
@@ -81,7 +81,7 @@ public class  Main {
         me.setCar(fiat);
         System.out.println("Model samochodu który udało Ci się kupić to: " + me.getCar().manufacturer + " " + me.getCar().model);
 */
-        Car opel = new Car("Opel", "Corsa", 2001);
+        LPG opel = new LPG("Opel", "Corsa", 2001);
         opel.value = 22000.0;
         opel.carAdded();
 
@@ -149,12 +149,28 @@ public class  Main {
         System.out.println("");
         FarmAnimal cow = new FarmAnimal("Krowa", 1200.0);
         FarmAnimal chicken = new FarmAnimal("Kurczak", 5.00);
+        FarmAnimal turkey = new FarmAnimal("Indyk", 8.50);
 
         cow.beEaten(me);
+        turkey.beEaten(me);
         chicken.beEaten(me);
         chicken.beEaten(me);
+        turkey.beEaten(me);
         dog.beEaten(me);
 
+
+
+        samsung.installAnApp("Twitter");
+        samsung.installAnApp("Twitter", 1.1);
+        samsung.installAnApp("Twitter", 1.2, "https://google.com");
+        samsung.installAnApp("Twitter", "Facebook", "YouTube");
+        samsung.installAnApp("Discord", 1.0, "discord.com");
+
+        System.out.println("");
+        opel.refuel("Electric");
+        opel.refuel("LPG");
+        fiat.refuel("Diesel");
+        myCar.refuel("Benzyna 95");
 
     }
 }
