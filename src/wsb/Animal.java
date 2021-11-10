@@ -68,7 +68,7 @@ public class Animal {
     }
 
     public String toString(){
-        return species + " " + name + " " + age;
+        return species + " " + name;
     }
 }
 //ctrl + alt + L - auto porządkowanie składni

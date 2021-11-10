@@ -5,8 +5,8 @@ import wsb.devices.*;
 public class  Main {
 
     public static void main(String[] args) {
-        Animal dog = new Animal("Wilczur");
-        Animal cat = new Animal("Devon Rex");
+        Pet dog = new Pet("Wilczur", 300.0);
+        Pet cat = new Pet("Devon Rex", 500.0);
 
         dog.name = "Szarik";
 
@@ -28,7 +28,7 @@ public class  Main {
         Integer humanAge = cat.getHumanAge();
         System.out.println("If I'll be human I'll be " + humanAge + " years old.");
 
-        Phone samsung = new Phone("Samsung", "Galaxy S21 5G", 2021);
+        Phone samsung = new Phone("Samsung", "Galaxy S21 5G", 2021, 5000.0);
 
         Human me = new Human();
 
@@ -67,19 +67,21 @@ public class  Main {
         me.setSalary(-1.0);
         System.out.println();
         me.setSalary(12500.50);
+        System.out.println();
 
         Car fiat = new Car("Fiat", "Bravo", 1998);
         fiat.value = 12000.0;
         fiat.carAdded();
-
+/*
         me.setSalary(20000.0);
         me.setCar(fiat);
         System.out.println("Model samochodu który udało Ci się kupić to: " + me.getCar().manufacturer + " " + me.getCar().model);
-
-        Car opel = new Car("Fiat", "Bravo", 1998);
-        opel.value = 12000.0;
+*/
+        Car opel = new Car("Opel", "Corsa", 2001);
+        opel.value = 22000.0;
         opel.carAdded();
 
+/*
         System.out.println(" ");
         System.out.println("Porównanie dwóch samochodów o takich samych wartościach pól: " + fiat.equals(opel));
         System.out.println(" ");
@@ -91,7 +93,7 @@ public class  Main {
         System.out.println("Wypisanie dwóch zwierzaków o różnych wartościach pól (przy użyciu toString):");
         System.out.println("1)Wypisanie obiektu o nazwie \"cat\": " + cat);
         System.out.println("2)Wypisanie obiektu o nazwie \"dog\": " + dog);
-
+*/
         System.out.println(" ");
         System.out.println("Wypisanie dwóch osób o różnych wartościach pól (przy użyciu toString):");
         System.out.println("1)Wypisanie obiektu o nazwie \"me\": " + me);
@@ -100,20 +102,45 @@ public class  Main {
         myWife.firstName = "Malgorzata";
         myWife.lastName = "Cwiklinska";
         myWife.pet = dog;
-        myWife.phone = new Phone("Google", "Pixel 4a", 2019);
+        myWife.phone = new Phone("Google", "Pixel 4a", 2019, 3500.0);
 
         System.out.println("2)Wypisanie obiektu o nazwie \"myWife\": " + myWife);
 
-        Human seller = new Human();
-        seller = myWife;
-        seller.cash = 0.0;
 
-        Human buyer = new Human();
-        buyer = me;
-        buyer.cash = 120000.0;
+        myWife.cash = 0.0;
+        myWife.car = fiat;
+
+        me.cash = 17500.0;
+
 
         System.out.println("");
-        fiat.sale(me, myWife, fiat.value);
+        System.out.println("Kasa kupującego przed sprzedażą auta: " + me.cash);
+        System.out.println("Kasa sprzedającego przed sprzedażą auta: " + myWife.cash);
+
+        System.out.println("");
+        fiat.sale(myWife, me , fiat.value);
+
+        System.out.println("");
+        System.out.println("Kasa kupującego po sprzedaży auta: " + me.cash);
+        System.out.println("Kasa sprzedającego po sprzedaży auta: " + myWife.cash);
+
+        System.out.println("");
+        dog.sale(myWife, me , dog.value);
+
+        System.out.println("");
+        System.out.println("Kasa kupującego po sprzedaży zwierza: " + me.cash);
+        System.out.println("Kasa sprzedającego po sprzedaży zwierza: " + myWife.cash);
+
+        System.out.println("");
+        myWife.phone.sale(myWife, me , myWife.phone.value);
+
+        System.out.println("");
+        System.out.println("Kasa kupującego po sprzedaży telefonu: " + me.cash);
+        System.out.println("Kasa sprzedającego po sprzedaży telefonu: " + myWife.cash);
+
+        System.out.println("");
+        System.out.println("Próba zakupu człowieka za pieniądze:");
+        me.sale(me, myWife , 0.0);
 
 
 

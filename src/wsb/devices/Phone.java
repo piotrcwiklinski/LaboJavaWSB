@@ -7,8 +7,9 @@ public class Phone extends Device implements Sellable {
     public String operatingSys;
     public Double screenSize;
 
-    public Phone(String manufacturer, String model, Integer yearOfProd){
+    public Phone(String manufacturer, String model, Integer yearOfProd, Double value){
         super(manufacturer, model, yearOfProd);
+        this.value = value;
         this.operatingSys = "Android";
     }
 

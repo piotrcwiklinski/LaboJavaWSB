@@ -4,7 +4,7 @@ import wsb.devices.Car;
 import wsb.devices.Phone;
 import java.util.Date;
 
-public class Human extends Animal {
+public class Human extends Animal implements Sellable {
     public Double cash;
     public String firstName;
     public String lastName;
@@ -64,6 +64,10 @@ public class Human extends Animal {
 
     public String toString(){
         return firstName + " " + lastName + " a imie pupila to: " + pet.name + ". Telefon którego używam to: " + phone;
+    }
+
+    public void sale(Human seller, Human buyer, Double price) {
+        System.out.println("Handel ludźmi jest zakazany, zgłaszam Cię do prokuratury " + seller.firstName + "!");
     }
 
 }

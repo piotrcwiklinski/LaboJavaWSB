@@ -2,8 +2,11 @@ package wsb;
 
 public class Pet extends Animal implements Sellable{
 
-    public Pet(String species) {
+    public Double value;
+
+    public Pet(String species, Double value) {
         super(species);
+        this.value = value;
     }
 
     public void sale(Human seller, Human buyer, Double price) {
