@@ -228,5 +228,17 @@ public class  Main {
         }
 
          */
+        System.out.println("");
+        System.out.println("Wartość garażu Piotra: " + me.sumGarageValue() + " zł;");
+        System.out.println("Wartość garażu Małgorzaty: " + myWife.sumGarageValue() + " zł;");
+
+        System.out.println("");
+        System.out.println("Garaż Piotra przed sortowaniem: ");
+        me.printGarage();
+
+        me.orderGarageByAgeAscending();
+        System.out.println("");
+        System.out.println("Garaż Piotra po sortowaniu: ");
+        me.printGarage();
     }
 }

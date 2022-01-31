@@ -7,7 +7,7 @@ import wsb.devices.Phone;
 import java.util.Date;
 
 public class Human extends Animal implements Sellable {
-    private static final int DEFAULT_GARAGE_SIZE = 3;
+    private static final int DEFAULT_GARAGE_SIZE = 5;
     public Double cash;
     public String firstName;
     public String lastName;
@@ -54,14 +54,18 @@ public class Human extends Animal implements Sellable {
     }
 
     public void setCar(Car newCar, Integer garageSpace) {
-        if (this.salary > newCar.value) {
-            this.garage[garageSpace] = newCar;
-            System.out.println("gratulacje, kupiłeś za gotówkę");
-        } else if (this.salary > newCar.value / 12) {
-            this.garage[garageSpace] = newCar;
-            System.out.println("Kupiłeś na raty");
+        if (this.garage[garageSpace] == null) {
+            if (this.salary > newCar.value) {
+                this.garage[garageSpace] = newCar;
+                System.out.println("gratulacje, kupiłeś za gotówkę");
+            } else if (this.salary > newCar.value / 12) {
+                this.garage[garageSpace] = newCar;
+                System.out.println("Kupiłeś na raty");
+            } else {
+                System.out.println("Nie da się kupić samochodu.");
+            }
         } else {
-            System.out.println("Nie da się kupić samochodu.");
+            System.out.println("Na wskazanym miejscu w garażu stoi już jakiś samochód.");
         }
     }
 
@@ -123,7 +127,30 @@ public class Human extends Animal implements Sellable {
 
     public void printGarage() {
         for (int i = 0; i < this.garage.length; i++) {
-            System.out.println(">Na miejscu " + i + " w garażu " + this.name + " stoi auto: " + this.garage[i]);
+            if(this.garage[i] != null)
+            System.out.println(">Na miejscu " + i + " w garażu " + this.name + " stoi auto: " + this.garage[i] + "(rok produkcji: " + this.garage[i].yearOfProd + ")");
         }
+    }
+
+    public Double sumGarageValue() {
+        Double garageValue = 0.0;
+        for (int i = 0; i < this.garage.length; i++) {
+            if(this.garage[i] != null)
+            garageValue += this.garage[i].value;
+        }
+        return garageValue;
+    }
+
+    public void orderGarageByAgeAscending(){
+            for(int i = 0; i < this.garage.length; i++)
+                for(int j = 0; j < this.garage.length - 1 - i; j++)
+                    if(this.garage[j] != null && this.garage[j+1] != null) {
+                        if (this.garage[j + 1].yearOfProd < this.garage[j].yearOfProd) {
+                            Car pom = this.garage[j + 1];
+                            this.garage[j + 1] = this.garage[j];
+                            this.garage[j] = pom;
+                        }
+                    }
+
     }
 }
