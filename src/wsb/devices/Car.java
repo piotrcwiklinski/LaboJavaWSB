@@ -25,17 +25,17 @@ public abstract class Car extends Device implements Sellable {
 
     public void sale(Human seller, Human buyer, Double price) {
         if (buyer.cash < price) {
-            System.out.println("KUPUJĄCY MA ZA MAłO KASY: ");
-        } else if(seller.getCar() == null){
-            System.out.println("SPRZEDAJĄCY NIE MA ZADNEGO AUTA");
-        } else if(!seller.getCar().equals(this)) {
-            System.out.println("SPRZEDAJĄCY NIE MA TEGO KONKRETNEGO AUTA (ZłODZIEJ)");
+            System.out.println("Nieudana próba zakupu samochodu: " + this + ". KUPUJĄCY MA ZA MAłO KASY!");
+        } else if(!seller.hasCar(this)){
+            System.out.println("Nieudana próba zakupu samochodu: " + this + ". SPRZEDAJĄCY NIE MA AUTA!");
+        } else if(!buyer.hasFreeParkingLot()) {
+            System.out.println("Nieudana próba zakupu samochodu: " + this + ". KUPUJĄCY NIE MA MIEJSCA W GARAŻU!");
         } else {
             seller.cash += price;
             buyer.cash -= price;
-            seller.car = null;
-            buyer.car = this;
-            System.out.println("Transakcja się udała, kupiono " + this);
+            seller.removeCar(this);
+            buyer.addCar(this);
+            System.out.println("Transakcja się udała, " + buyer.firstName + " kupił/a " + this + " od " + seller.firstName);
 
         }
     }

@@ -1,6 +1,7 @@
 package wsb.creatures;
 
 public abstract class Animal implements Feedable {
+    private static final Double DEFAULT_FOOD_WEIGHT = 1.0;
     public String species;
     public String name;
     public Double weight;
@@ -17,8 +18,7 @@ public abstract class Animal implements Feedable {
             this.weight = 2.8;
         } else if (this.species == "Homo Sapiens") {
             this.weight = 80.0;
-        }
-        else {
+        } else {
             this.weight = 1.0;
         }
     }
@@ -46,16 +46,11 @@ public abstract class Animal implements Feedable {
     }
 
     public void feed() {
-        if (this.alive == true){
-            this.weight += 1.0;
-            System.out.println("Waga " + this.name + " po karmieniu wynosi: " + this.weight);
-        } else {
-            System.out.println("To zwierzę jest martwe, nie możesz go już nigdy więcej nakarmić.");
-        }
+        this.feed(DEFAULT_FOOD_WEIGHT);
     }
 
     public void feed(Double foodWeight) {
-        if (this.alive == true){
+        if (this.alive) {
             this.weight += foodWeight;
             System.out.println("Waga " + this.name + " po karmieniu wynosi: " + this.weight);
         } else {
@@ -64,14 +59,14 @@ public abstract class Animal implements Feedable {
     }
 
     public void takeForAWalk() {
-        if (this.alive == true){
+        if (this.alive) {
             this.weight -= 1.0;
             if (this.weight > 0.0) {
                 System.out.println("Waga tego zwierzęcia po spacerze wynosi: " + this.weight);
-            }else {
+            } else {
                 System.out.println("Waga zwierzęcia spadła poniżej 0 :(");
             }
-            if(this.weight <= 0.0){
+            if (this.weight <= 0.0) {
                 this.alive = false;
                 System.out.println("Twoje zwierze niestety umarło.");
             }
@@ -80,7 +75,7 @@ public abstract class Animal implements Feedable {
         }
     }
 
-    public String toString(){
+    public String toString() {
         return species + " " + name;
     }
 }

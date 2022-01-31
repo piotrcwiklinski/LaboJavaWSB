@@ -3,11 +3,16 @@ package wsb;
 import wsb.creatures.*;
 import wsb.devices.*;
 
-//ctrl + alt + L - auto porządkowanie składni
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 public class  Main {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         Pet dog = new Pet("Wilczur", 300.0);
         Pet cat = new Pet("Devon Rex", 500.0);
 
@@ -46,14 +51,14 @@ public class  Main {
 
         Electric myCar = new Electric("Volkswagen", "Passat", 2021);
         myCar.color = "Silver";
-        myCar.value = 120900.99;
+        myCar.value = 110900.99;
 
         System.out.println(" ");
-        me.car = myCar;
-        System.out.println("I drive a " + me.car.manufacturer + " " + me.car.model + ".");
-        System.out.println("It's painted in " + me.car.color + ". It was produced in " + me.car.yearOfProd + ", and it's estimated value in PLN is around " + me.car.value);
+        /*me.garage[0] = myCar;
+        System.out.println("I drive a " + me.garage[0].manufacturer + " " + me.garage[0].model + ".");
+        System.out.println("It's painted in " + me.garage[0].color + ". It was produced in " + me.garage[0].yearOfProd + ", and it's estimated value in PLN is around " + me.garage[0].value);
         System.out.println(" ");
-
+        */
         cat.feed();
         cat.feed(0.5);
         cat.takeForAWalk();
@@ -76,11 +81,12 @@ public class  Main {
         Diesel fiat = new Diesel("Fiat", "Bravo", 1998);
         fiat.value = 12000.0;
         fiat.carAdded();
-/*
+
         me.setSalary(20000.0);
-        me.setCar(fiat);
-        System.out.println("Model samochodu który udało Ci się kupić to: " + me.getCar().manufacturer + " " + me.getCar().model);
-*/
+
+        me.setCar(myCar, 0);
+        System.out.println("Model samochodu który udało Ci się kupić to: " + me.getCar(0).manufacturer + " " + me.getCar(0).model);
+
         LPG opel = new LPG("Opel", "Corsa", 2001);
         opel.value = 22000.0;
         opel.carAdded();
@@ -112,9 +118,10 @@ public class  Main {
 
 
         myWife.cash = 0.0;
-        myWife.car = fiat;
+        myWife.garage[0] = fiat;
+        myWife.garage[1] = opel;
 
-        me.cash = 17500.0;
+        me.cash = 170500.0;
 
 
         System.out.println("");
@@ -122,21 +129,37 @@ public class  Main {
         System.out.println("Stan konta Małgosi przed sprzedażą auta: " + myWife.cash);
 
         System.out.println("");
-        fiat.sale(myWife, me , fiat.value);
+        fiat.sale(myWife, me, fiat.value);
 
         System.out.println("");
         System.out.println("Stan konta Piotra po sprzedaży auta: " + me.cash);
         System.out.println("Stan konta Małgosi po sprzedaży auta: " + myWife.cash);
 
         System.out.println("");
-        cat.sale(me, myWife , cat.value);
+        me.printGarage();
+
+        System.out.println("");
+        fiat.sale(myWife, me, fiat.value);
+
+        System.out.println("");
+        opel.sale(myWife, me, opel.value);
+
+        System.out.println("");
+        System.out.println("Stan konta Piotra po sprzedaży auta: " + me.cash);
+        System.out.println("Stan konta Małgosi po sprzedaży auta: " + myWife.cash);
+
+        System.out.println("");
+        me.printGarage();
+
+        System.out.println("");
+        cat.sale(me, myWife, cat.value);
 
         System.out.println("");
         System.out.println("Stan konta Piotra po sprzedaży zwierza: " + me.cash);
         System.out.println("Stan konta Małgosi po sprzedaży zwierza: " + myWife.cash);
 
         System.out.println("");
-        myWife.phone.sale(myWife, me , myWife.phone.value);
+        myWife.phone.sale(myWife, me, myWife.phone.value);
 
         System.out.println("");
         System.out.println("Stan konta Piotra po sprzedaży telefonu: " + me.cash);
@@ -144,7 +167,7 @@ public class  Main {
 
         System.out.println("");
         System.out.println("Próba zakupu człowieka za pieniądze:");
-        me.sale(me, myWife , 0.0);
+        me.sale(me, myWife, 0.0);
 
         System.out.println("");
         FarmAnimal cow = new FarmAnimal("Krowa", 1200.0);
@@ -159,12 +182,18 @@ public class  Main {
         dog.beEaten(me);
 
 
-
         samsung.installAnApp("Twitter");
         samsung.installAnApp("Twitter", 1.1);
-        samsung.installAnApp("Twitter", 1.2, "https://google.com");
-        samsung.installAnApp("Twitter", "Facebook", "YouTube");
         samsung.installAnApp("Discord", 1.0, "discord.com");
+
+        URL sample = null;
+        try {
+            sample = new URL("https://icdn.2cda.pl/obr/oryginalne/565a21c21aa738402dd4c9dd9972b1a0.jpg");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        samsung.installAnApp(sample);
 
         System.out.println("");
         opel.refuel("Electric");
@@ -172,5 +201,32 @@ public class  Main {
         fiat.refuel("Diesel");
         myCar.refuel("Benzyna 95");
 
+        /*
+        List<Integer> listOfNumbers = new LinkedList<>();
+        listOfNumbers.add(4);
+        listOfNumbers.add(123);
+        listOfNumbers.add(432);
+        listOfNumbers.add(-1);
+        System.out.println(listOfNumbers.size());
+
+        Set<Integer> setOfNumbers = new HashSet<>();
+        setOfNumbers.add(4);
+        setOfNumbers.add(123);
+        setOfNumbers.add(432);
+        setOfNumbers.add(432);
+        setOfNumbers.add(432);
+        setOfNumbers.add(-1);
+        System.out.println(setOfNumbers.size());
+        System.out.println("debug");
+
+        for(Integer i : listOfNumbers){
+            System.out.println(i);
+        }
+
+        for(Integer d : setOfNumbers) {
+            System.out.println(d);
+        }
+
+         */
     }
 }
