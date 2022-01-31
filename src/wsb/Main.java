@@ -5,12 +5,12 @@ import wsb.devices.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 
 public class  Main {
+
+
 
     public static void main(String[] args) {
         Pet dog = new Pet("Wilczur", 300.0);
@@ -117,9 +117,10 @@ public class  Main {
         System.out.println("2)Wypisanie obiektu o nazwie \"myWife\": " + myWife);
 
 
-        myWife.cash = 0.0;
-        myWife.garage[0] = fiat;
-        myWife.garage[1] = opel;
+        myWife.cash = 150000.0;
+        myWife.setSalary(20000.0);
+        myWife.setCar(fiat, 0);
+        myWife.setCar(opel, 1);
 
         me.cash = 170500.0;
 
@@ -240,5 +241,56 @@ public class  Main {
         System.out.println("");
         System.out.println("Garaż Piotra po sortowaniu: ");
         me.printGarage();
+
+        System.out.println("");
+        fiat.sale(me, myWife, fiat.value);
+
+        System.out.println("");
+        opel.sale(me, myWife, opel.value);
+
+        System.out.println("");
+        myCar.sale(me, myWife, myCar.value);
+
+        System.out.println("");
+        fiat.sale(myWife, me, fiat.value);
+
+        System.out.println("");
+        opel.sale(myWife, me, opel.value);
+
+        System.out.println("");
+        System.out.println("Lista właścicieli Fiata: " + fiat.listOfOwners);
+        System.out.println("Lista właścicieli Opla: " + opel.listOfOwners);
+        System.out.println("Lista właścicieli VW: " + myCar.listOfOwners);
+
+        System.out.println("");
+        me.garage[4] = myCar;
+        myWife.cash += 150000;
+        myCar.sale(me, myWife, myCar.value);
+
+        Human someone = new Human(3);
+        someone.firstName = "Andrzej";
+        someone.lastName = "Karmazyniak";
+        someone.cash = 25000.0;
+        someone.getFullName();
+        opel.sale(me,someone, opel.value);
+
+        System.out.println("");
+        fiat.checkOwners(me);
+        fiat.checkOwners(myWife);
+        fiat.checkOwners(someone);
+
+        System.out.println("");
+        fiat.checkIfHumanASoldToHumanB(me, myWife);
+        fiat.checkIfHumanASoldToHumanB(myWife, me);
+        fiat.checkIfHumanASoldToHumanB(myWife, someone);
+
+        System.out.println("");
+        fiat.countCarTransactions();
+        opel.countCarTransactions();
+        myCar.countCarTransactions();
+
+        System.out.println("");
+        SalesRecord.printTransactionList();
+
     }
 }

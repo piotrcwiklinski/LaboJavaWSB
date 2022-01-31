@@ -58,9 +58,13 @@ public class Human extends Animal implements Sellable {
             if (this.salary > newCar.value) {
                 this.garage[garageSpace] = newCar;
                 System.out.println("gratulacje, kupiłeś za gotówkę");
+                this.getFullName();
+                newCar.listOfOwners.add(this.name);
             } else if (this.salary > newCar.value / 12) {
                 this.garage[garageSpace] = newCar;
                 System.out.println("Kupiłeś na raty");
+                this.getFullName();
+                newCar.listOfOwners.add(this.name);
             } else {
                 System.out.println("Nie da się kupić samochodu.");
             }
