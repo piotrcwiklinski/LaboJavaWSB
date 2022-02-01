@@ -292,5 +292,9 @@ public class  Main {
         System.out.println("");
         SalesRecord.printTransactionList();
 
+        Application discord = new Application("Discord", 1.0,0.0);
+        Application winword = new Application("MS Word", 2.6, 399.99);
+        Application server = new Application("MS Server 2019", 1.11, 1999.99);
+
     }
 }

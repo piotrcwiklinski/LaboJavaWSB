@@ -10,7 +10,6 @@ public abstract class Car extends Device implements Sellable {
     public Integer milleage;
     public ArrayList listOfOwners = new ArrayList();
 
-
     public Car(String manufacturer, String model, Integer yearOfProd) {
         super(manufacturer, model, yearOfProd);
     }
@@ -51,14 +50,12 @@ public abstract class Car extends Device implements Sellable {
         }
     }
 
-    public Boolean checkOwners(Human owner) {
+    public void checkOwners(Human owner) {
         if(this.listOfOwners.contains(owner.name)){
             System.out.println(owner.name + " był/a właścicielem pojazdu " + this);
-            return true;
         }
         else {
             System.out.println(owner.name + " nie był/a nigdy właścicielem pojazdu " + this );
-            return false;
         }
     }
 
@@ -84,4 +81,6 @@ public abstract class Car extends Device implements Sellable {
     }
 
     public abstract void refuel(String fuelType);
+
+
 }

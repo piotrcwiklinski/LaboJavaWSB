@@ -1,5 +1,6 @@
 package wsb.creatures;
 
+import wsb.SalesRecord;
 import wsb.Sellable;
 
 public class Pet extends Animal implements Sellable, Edible {
@@ -22,6 +23,7 @@ public class Pet extends Animal implements Sellable, Edible {
             seller.pet = null;
             buyer.pet = this;
             System.out.println("Transakcja się udała, kupiono " + this);
+            SalesRecord.listOfTransactions.add(new SalesRecord(seller.name, buyer.name, price, this.toString()));
 
         }
     }

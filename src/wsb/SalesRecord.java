@@ -18,10 +18,10 @@ public class SalesRecord {
         this.transactionItem = what;
     }
 
-    public static ArrayList listOfTransactions = new ArrayList();
+    public static ArrayList<SalesRecord> listOfTransactions = new ArrayList<SalesRecord>();
 
     public String toString(){
-        return "\t1)Sprzedający: " + sellerName + " \t\t2)Kupujący: " + buyerName + "\t\t3)Kwota transakcji: " + price + "\t\t4)Data transakcji: " + transactionDate + "\t\t5)Przedmiot transakcji: " + transactionItem + ";";
+        return "\tSprzedający: " + sellerName + " \t\tKupujący: " + buyerName + "\tKwota transakcji: " + price + "\t\tData transakcji: " + transactionDate + "\t\tPrzedmiot transakcji: " + transactionItem + ";";
     }
 
     public static void printTransactionList(){
