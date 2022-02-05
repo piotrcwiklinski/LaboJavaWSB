@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 public abstract class Car extends Device implements Sellable {
 
-    public Integer milleage;
-    public ArrayList listOfOwners = new ArrayList();
+    public ArrayList <String> listOfOwners = new ArrayList<>();
 
     public Car(String manufacturer, String model, Integer yearOfProd) {
         super(manufacturer, model, yearOfProd);

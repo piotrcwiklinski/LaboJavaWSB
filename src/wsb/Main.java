@@ -5,7 +5,6 @@ import wsb.devices.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.*;
 
 
 public class  Main {
@@ -293,8 +292,44 @@ public class  Main {
         SalesRecord.printTransactionList();
 
         Application discord = new Application("Discord", 1.0,0.0);
-        Application winword = new Application("MS Word", 2.6, 399.99);
-        Application server = new Application("MS Server 2019", 1.11, 1999.99);
+        Application albicla = new Application("Albicla", 2.2, 120.0);
+        Application chrome = new Application("Google Chrome", 9.6, 19.99);
+        Application hbogo = new Application("HBO GO", 1.21, 9.99);
+        Application inteliJ = new Application("IntelliJ IDEA", 16.19, 299.99);
+        Application facebook = new Application("Facebook", 1.19, 0.0);
+        Application winword = new Application("MS Word", 2.6, 199.99);
+        Application server = new Application("MS Server 2019", 1.11, 999.99);
+        Phone motorola = new Phone("Motorola","RAZR V3", 2003, 150.0);
+
+        me.phone = samsung;
+
+        samsung.installAnApp(me, discord);
+        samsung.installAnApp(me,facebook);
+        samsung.installAnApp(me,albicla);
+        samsung.installAnApp(me,inteliJ);
+        samsung.installAnApp(me,chrome);
+        samsung.installAnApp(me,hbogo);
+        samsung.installAnApp(me, winword);
+        samsung.installAnApp(me, server);
+
+        System.out.println("");
+        samsung.checkIfInstalled(discord);
+        motorola.checkIfInstalled(discord);
+
+        System.out.println("");
+        samsung.checkIfInstalled("MS Word");
+        samsung.checkIfInstalled("Pornhub");
+
+        System.out.println("");
+        samsung.printFreeAppsList();
+
+        System.out.println("");
+        samsung.sumAppsValue();
+
+        System.out.println("");
+        samsung.printAppNamesSortedByName();
+        samsung.printAppNamesSortedByPrice();
+
 
     }
 }

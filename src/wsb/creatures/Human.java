@@ -11,7 +11,6 @@ public class Human extends Animal implements Sellable {
     public Double cash;
     public String firstName;
     public String lastName;
-    public Integer age;
     public Double salary;
     public Animal pet;
     public Car[] garage;
